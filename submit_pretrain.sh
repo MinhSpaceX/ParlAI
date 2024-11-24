@@ -29,18 +29,6 @@ JOB_NAME='bart_prefinetune_multi'
 mkdir -p /fsx-labs/prajj/tasks/pre_finetune/${JOB_NAME}
 export MODEL_FILE=/fsx-labs/prajj/tasks/pre_finetune/${JOB_NAME}/$JOB_NAME
 
-# #################
-
-sbatch  --job-name $JOB_NAME \
-        --partition learnaccel \
-        --gres gpu:8 \
-        --nodes 1\
-        --ntasks-per-node 8 \
-        --cpus-per-task 10\
-        --output ${JOB_NAME}_std.out \
-        --error ${JOB_NAME}_std.err \
-        --time 4320 \
-        --wrap "
 #!/bin/bash
 python3 parlai/scripts/multiprocessing_train.py \
         --task $TASK  \
