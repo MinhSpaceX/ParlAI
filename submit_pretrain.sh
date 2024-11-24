@@ -1,9 +1,4 @@
 #!/bin/bash
-export CONDA_ENV="torch"
-source $HOME/miniconda/etc/profile.d/conda.sh
-zsh
-cd $HOME/code/parlai
-conda activate $CONDA_ENV
 
 # CHANGE ME #####################
 export TRUNCATE=1000
