@@ -2608,9 +2608,11 @@ class PromptBartAgent(BartAgent):
         some_labels_avail = labels_avail or any(
             'eval_labels_vec' in ex for ex in exs
         )
-
+        
         ys_dst = y_dst_lens = labels_dst = label_dst_original_lengths = None
         label_dst_truncate_rate = label_dst_truncated_lengths = None
+        label_vecs_entity = None
+    
         if some_labels_avail:
             if any('label_original_length' in ex for ex in exs):
                 label_dst_truncate_rate = torch.LongTensor(
