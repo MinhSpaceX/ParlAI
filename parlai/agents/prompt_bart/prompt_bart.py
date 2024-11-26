@@ -2694,7 +2694,7 @@ class PromptBartAgent(BartAgent):
             text_vec=xs,
             label_vec_dst=ys_dst,
             labels_dst=labels_dst,
-            label_vec_dialog_act=label_vecs_entity,
+            label_vec_dialog_act=label_vecs_entity if label_vecs_entity is not None else torch.empty(0),
             labels_dialog_act=labels_entity,
             valid_indices=valid_inds,
             candidates=cands,
